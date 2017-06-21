@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Two Way Data Binding .</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body  ng-app="Nirikshan_ko_app">
+<h1 style="text-align:center;">People Working In Xprinn.</h1>
+  <div ng-controller="MyContRollEr">
+      Display Number Of Rows:   <input type="number" ng-model="limitingAgent" min="0" max="10">
+      <br><br>
+      Order By :
+      <select ng-model="order">
+      	<option value="pl">Programming Language.</option>
+      	<option value="percent">Percentage.</option>
+      	<option value="salary">Salary.</option>
+      	<option value="people">People.</option>
+      	<option value="date">Date.</option>
+      </select>
+      <br>
+      <br>
+      <table border="2">
+   	    <tr>
+   	   	   <td>Programming Language:</td>
+   	   	   <td>Percentage:</td>
+   	   	   <td>Salary:</td>
+   	   	   <td>People:</td>
+   	   	   <td>Started Date:</td>
+   	    </tr>
+   	     <tr ng-repeat="data in info | limitTo:limitingAgent | orderBy:order">
+   	   	   <td>{{data.pl}}</td>
+   	   	   <td>{{data.percent}}</td>
+   	   	   <td>{{data.salary |currency:'Rs.'}}</td>
+   	   	   <td>{{data.people | number :2}}</td>
+   	   	   <td>{{data.date | date:"yyyy/MM/dd"}}</td>
+   	    </tr>
+      </table>
+      <br>
+  </div>
+  <footer>
+  	<h5>By: Nirikshan (Dj Programmer).</h5>
+  	<a href="https://www.facebook.com/xprin.bd">https://www.facebook.com/xprin.bd</a>
+  </footer>
+</body>
+</html>
